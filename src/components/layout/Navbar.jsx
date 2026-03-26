@@ -27,7 +27,7 @@ const Navbar = () => {
   const isDarkTheme = isScrolled || location.pathname !== '/';
 
   return (
-    <nav className={`fixed top-0 z-50 w-full transition-all duration-500 ${isDarkTheme ? 'bg-white/40 backdrop-blur-2xl border-b border-white/40 shadow-lg shadow-slate-200/20 py-4' : 'bg-transparent py-6 border-b border-transparent'}`}>
+    <nav data-aos="fade-down" className={`fixed top-0 z-50 w-full transition-all duration-500 ${isDarkTheme ? 'bg-white/40 backdrop-blur-2xl border-b border-white/40 shadow-lg shadow-slate-200/20 py-4' : 'bg-transparent py-6 border-b border-transparent'}`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">

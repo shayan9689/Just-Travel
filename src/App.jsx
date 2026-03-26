@@ -1,4 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
@@ -11,10 +14,25 @@ import UserDashboard from './pages/UserDashboard';
 import ScrollToTop from './hooks/useScrollToTop';
 import { AppProvider } from './context/AppContext';
 
+const AosInit = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    AOS.init({ duration: 800 }); // Removed once: true to animate every scroll
+  }, []);
+
+  useEffect(() => {
+    AOS.refresh(); // Refresh calculation on page route changes
+  }, [location.pathname]);
+
+  return null;
+};
+
 function App() {
   return (
     <AppProvider>
       <Router>
+        <AosInit />
         <ScrollToTop />
         <div className="flex min-h-screen flex-col overflow-x-hidden">
           <Navbar />

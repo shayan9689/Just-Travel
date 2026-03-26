@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Star, ArrowRight } from 'lucide-react';
 import { destinations } from '../../data/travelData';
-import { motion } from 'framer-motion';
 
 const FeaturedDestinations = () => {
   return (
@@ -20,12 +19,10 @@ const FeaturedDestinations = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {destinations.slice(0, 3).map((dest, index) => (
-            <motion.div
+            <div
               key={dest.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="group relative overflow-hidden rounded-3xl bg-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500"
             >
               <div className="relative h-96 w-full overflow-hidden">
@@ -57,7 +54,7 @@ const FeaturedDestinations = () => {
                   View Details
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
 import { Clock, Users, Star, ArrowRight } from 'lucide-react';
 import { packages } from '../../data/travelData';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 const TrendingPackages = () => {
   return (
@@ -15,11 +14,9 @@ const TrendingPackages = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {packages.map((pkg, index) => (
-            <motion.div
+            <div
               key={pkg.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
               className="flex flex-col lg:flex-row overflow-hidden rounded-[32px] bg-white shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-200/20 transition-all duration-500 group"
             >
               <div className="lg:w-2/5 h-64 lg:h-auto overflow-hidden">
@@ -62,7 +59,7 @@ const TrendingPackages = () => {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

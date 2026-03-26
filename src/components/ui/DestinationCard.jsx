@@ -1,9 +1,13 @@
 import { MapPin, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const DestinationCard = ({ destination }) => {
+const DestinationCard = ({ destination, index = 0 }) => {
   return (
-    <div className="group relative overflow-hidden rounded-[32px] bg-white shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-200/20 transition-all duration-500 border border-slate-100 flex flex-col h-full">
+    <div 
+      data-aos="fade-up" 
+      data-aos-delay={index * 100}
+      className="group relative overflow-hidden rounded-[32px] bg-white shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-200/20 transition-all duration-500 border border-slate-100 flex flex-col h-full"
+    >
       <div className="relative h-64 overflow-hidden">
         <img 
           src={destination.image} 

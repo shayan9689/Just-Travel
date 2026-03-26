@@ -49,7 +49,7 @@ const HeroSection = () => {
       </div>
 
       {/* Bottom Floating Card */}
-      <div className="absolute bottom-12 left-0 z-20 w-full hidden lg:block">
+      <div className="absolute bottom-12 left-0 z-20 w-full hidden lg:block" data-aos="fade-up" data-aos-delay="400">
         <div className="container mx-auto px-6">
           <div className="glass-card max-w-4xl p-8 rounded-3xl flex items-center justify-between gap-8">
             <div className="flex-1 border-r border-slate-200/50 pr-8">

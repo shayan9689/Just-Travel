@@ -1,9 +1,13 @@
 import { Clock, Users, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const PackageCard = ({ pkg }) => {
+const PackageCard = ({ pkg, index = 0 }) => {
   return (
-    <div className="flex flex-col overflow-hidden rounded-[32px] bg-white shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-200/20 transition-all duration-500 group border border-slate-100">
+    <div 
+      data-aos="fade-up"
+      data-aos-delay={index * 100}
+      className="flex flex-col overflow-hidden rounded-[32px] bg-white shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-200/20 transition-all duration-500 group border border-slate-100"
+    >
       <div className="relative h-64 overflow-hidden">
         <img 
           src={pkg.image} 
