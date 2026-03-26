@@ -24,13 +24,15 @@ const Navbar = () => {
     { name: 'Reviews', path: '/#reviews' },
   ];
 
+  const isDarkTheme = isScrolled || location.pathname !== '/';
+
   return (
-    <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 z-50 w-full transition-all duration-500 ${isDarkTheme ? 'bg-white/40 backdrop-blur-2xl border-b border-white/40 shadow-lg shadow-slate-200/20 py-4' : 'bg-transparent py-6 border-b border-transparent'}`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black tracking-tighter text-emerald-600">PAKISTAN</span>
-            <span className="text-2xl font-light tracking-widest text-slate-800">EXPLORER</span>
+            <span className={`text-2xl font-black tracking-tighter transition-colors ${isDarkTheme ? 'text-emerald-600' : 'text-emerald-500'}`}>PAKISTAN</span>
+            <span className={`text-2xl font-light tracking-widest transition-colors drop-shadow-sm ${isDarkTheme ? 'text-slate-900' : 'text-slate-100'}`}>EXPLORER</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -39,13 +41,13 @@ const Navbar = () => {
               <Link 
                 key={link.name} 
                 to={link.path} 
-                className={`text-sm font-semibold transition-colors ${isScrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-700 hover:text-emerald-600'}`}
+                className={`text-sm font-bold tracking-wide transition-all ${isDarkTheme ? 'text-slate-900 hover:text-emerald-600' : 'text-slate-100 hover:text-emerald-400 drop-shadow-md'}`}
               >
                 {link.name}
               </Link>
             ))}
             <div className="flex items-center gap-4">
-              <button className="p-2 text-slate-500 hover:text-emerald-600">
+              <button className={`p-2 transition-colors ${isDarkTheme ? 'text-slate-800 hover:text-emerald-600' : 'text-slate-200 hover:text-white'}`}>
                 <Search size={20} />
               </button>
               <button 
@@ -59,7 +61,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <button className={`md:hidden ${isDarkTheme ? 'text-slate-900 hover:text-emerald-600' : 'text-slate-100 hover:text-white'}`} onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -69,13 +71,13 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="absolute left-0 top-full w-full bg-white border-t border-slate-100 p-6 md:hidden animate-fade-in shadow-xl">
+          <div className="absolute left-0 top-full w-full bg-white/60 backdrop-blur-3xl border-y border-white/40 p-6 md:hidden animate-fade-in shadow-2xl">
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
                 <Link 
                   key={link.name} 
                   to={link.path} 
-                  className="text-lg font-bold text-slate-800"
+                  className="text-lg font-black text-slate-900 hover:text-emerald-600 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

@@ -34,6 +34,10 @@
   body {
     @apply bg-slate-50 font-sans text-slate-900 selection:bg-emerald-100 selection:text-emerald-900;
   }
+
+  button, a {
+    cursor: pointer;
+  }
 }
 
 @layer components {
@@ -54,13 +58,11 @@
   }
 }
 
-/* Custom Scrollbar */
+/* Hide Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  display: none;
 }
-::-webkit-scrollbar-track {
-  @apply bg-slate-50;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-slate-200 rounded-full border-4 border-slate-50 hover:bg-slate-300 transition-colors;
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

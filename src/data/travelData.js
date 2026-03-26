@@ -1,4 +1,4 @@
-import heroImg from "../assets/premium/pakistan_travel_hero_1774527001487.png";
+import heroImg from "../assets/imgs/morgan-thompson-I7q8s0KNhn0-unsplash.jpg";
 import hunzaImg from "../assets/premium/destination_hunza_valley_1774527050537.png";
 import skarduImg from "../assets/premium/destination_skardu_lake_shangrila_1774527073187.png";
 
