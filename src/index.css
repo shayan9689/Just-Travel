@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #059669; /* emerald-600 */
+  --color-brand-secondary: #f59e0b; /* amber-500 */
+  --font-sans: "Inter", system-ui, sans-serif;
+  
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slow-zoom: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  :root {
+    --primary-color: 16, 185, 129;
+    --secondary-color: 245, 158, 11;
+  }
+
+  body {
+    @apply bg-slate-50 font-sans text-slate-900 selection:bg-emerald-100 selection:text-emerald-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-2xl bg-emerald-600 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-emerald-500/20 transition-all hover:bg-emerald-700 hover:scale-[1.02] active:scale-95 disabled:opacity-50;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-2xl shadow-slate-200/50;
+  }
+
+  .input-field {
+    @apply w-full rounded-[24px] border border-slate-100 bg-white px-6 py-5 text-sm font-bold text-slate-900 outline-none transition-all focus:border-emerald-500 focus:ring-8 focus:ring-emerald-500/5 placeholder:text-slate-400;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full border-4 border-slate-50 hover:bg-slate-300 transition-colors;
+}
