@@ -1,17 +1,35 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import { BrowserRouter as Router } from 'react-router-dom';
+import Footer from './components/layout/Footer';
+import HomePage from './pages/HomePage';
+import DestinationsPage from './pages/DestinationsPage';
+import DestinationDetailPage from './pages/DestinationDetailPage';
+import PackagesPage from './pages/PackagesPage';
+import PackageDetailPage from './pages/PackageDetailPage';
+import BookingPage from './pages/BookingPage';
+import UserDashboard from './pages/UserDashboard';
+import ScrollToTop from './hooks/useScrollToTop';
 import { AppProvider } from './context/AppContext';
 
 function App() {
   return (
     <AppProvider>
       <Router>
-        <div className="flex min-h-screen flex-col">
+        <ScrollToTop />
+        <div className="flex min-h-screen flex-col overflow-x-hidden">
           <Navbar />
-          <main className="flex-grow pt-32 text-center text-slate-800">
-            <h1 className="text-4xl font-black">NAVBAR TEST</h1>
-            <p className="mt-4 font-medium">If you see this, the Navbar and Context are working.</p>
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/destinations" element={<DestinationsPage />} />
+              <Route path="/destination/:id" element={<DestinationDetailPage />} />
+              <Route path="/packages" element={<PackagesPage />} />
+              <Route path="/package/:id" element={<PackageDetailPage />} />
+              <Route path="/booking" element={<BookingPage />} />
+              <Route path="/dashboard" element={<UserDashboard />} />
+            </Routes>
           </main>
+          <Footer />
         </div>
       </Router>
     </AppProvider>

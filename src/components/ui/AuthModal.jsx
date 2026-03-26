@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Lock, User, Github, Chrome } from 'lucide-react';
+import { X, Mail, Lock, User } from 'lucide-react';
 
 const AuthModal = ({ isOpen, onClose }) => {
   const [mode, setMode] = useState('login');
@@ -66,11 +66,11 @@ const AuthModal = ({ isOpen, onClose }) => {
            </div>
 
            <div className="flex gap-4">
-              <button className="flex-1 py-4 border border-slate-100 rounded-[20px] flex items-center justify-center hover:bg-slate-50 transition-all">
-                 <Chrome size={20} className="text-slate-900" />
+              <button className="flex-1 py-4 border border-slate-100 rounded-[20px] flex items-center justify-center hover:bg-slate-50 transition-all font-bold text-sm text-slate-700">
+                 Continue with Google
               </button>
-              <button className="flex-1 py-4 border border-slate-100 rounded-[20px] flex items-center justify-center hover:bg-slate-50 transition-all">
-                 <Github size={20} className="text-slate-900" />
+              <button className="flex-1 py-4 border border-slate-100 rounded-[20px] flex items-center justify-center hover:bg-slate-50 transition-all font-bold text-sm text-slate-700">
+                 Continue with Github
               </button>
            </div>
         </div>

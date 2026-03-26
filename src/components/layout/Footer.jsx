@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -15,9 +15,9 @@ const Footer = () => {
               Discover the breathtaking beauty and rich heritage of Pakistan. Our mission is to provide luxury travel experiences that inspire and connect.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-slate-800 rounded-lg hover:bg-emerald-600 transition-colors"><Facebook size={18} /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-lg hover:bg-emerald-600 transition-colors"><Twitter size={18} /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-lg hover:bg-emerald-600 transition-colors"><Instagram size={18} /></a>
+              <a href="#" className="px-3 py-1 text-xs font-bold bg-slate-800 rounded-lg hover:bg-emerald-600 transition-colors">FB</a>
+              <a href="#" className="px-3 py-1 text-xs font-bold bg-slate-800 rounded-lg hover:bg-emerald-600 transition-colors">TW</a>
+              <a href="#" className="px-3 py-1 text-xs font-bold bg-slate-800 rounded-lg hover:bg-emerald-600 transition-colors">IG</a>
             </div>
           </div>
 
